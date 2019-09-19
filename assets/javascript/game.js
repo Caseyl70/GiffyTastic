@@ -18,7 +18,7 @@ $("#buttons").on("click", "buttons", function() {
             var ratings = results[i].ratings;
             var p = $("<p>").text("Rating: " + ratings);
             //FOR each state of image, still or animate( Need a .attr and the string argument)
-            
+
             var worldImage = $("<img>").addClass("gif").attr("data-state", "still").attr("data-animate", results[i].images.fixed_height_url)
             worldImage.attr("src", results[i].images.fixed_height_still.url);
             //Will need to use my new div to set equal to what will pull images(still, animated)
@@ -29,6 +29,28 @@ $("#buttons").on("click", "buttons", function() {
             console.log(ratings)
 
             $("#gifs-appear-hear").prepend(worldImage);
+
+            //on.click function for animating gifs, and making gif images still
+        }
+        $("#gifs-appear-here").on("click", "gifs", function() {
+            var state = $(this).attr("data-state");
+            var stillImage = $(this).attr("data-still");
+            var animateImage = $(this).attr("data-animate");
+//If/else statement if state is still, true. Else, false. 
+            if (state === "still") {
+                $(this).attr({
+                "src": animateImage,
+                "data-state": "animate",
+                })
+            
+            } else {
+                $(this).attr({
+                    "src": stillImage,
+                    "data-state": "still"
+                })
+                }
+            }
+
         }
     }
 }
