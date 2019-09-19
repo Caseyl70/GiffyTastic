@@ -1,0 +1,48 @@
+body {
+    background-image: url("../images/jason-rosewell-D3YwPVsNATg-unsplash\ \(1\).jpg");
+    font-size: 20px;
+}
+
+header {
+    background-image: url("../images/jason-rosewell-D3YwPVsNATg-unsplash\ \(1\).jpg");
+    padding: 10px;;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center; 
+    margin-bottom: 10px;
+    
+}
+
+h1 {
+    color: burlywood; 
+    font-stretch: expanded;
+    font-family: 'Vollkorn SC', serif;
+}
+
+h2 {
+    color: burlywood;
+    text-align: inherit;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#buttons {
+    font-size: 20px;
+    text-align: center;
+    flood-opacity: initial;
+    align-content: center;
+}
+
+#gifs-appear-here {
+    text-align: center;
+}
+
+#submit {
+    margin: 0 0 0 100px;
+}
+
+#gifs-appear-here {
+    margin-top: 10px;
+}
+
+
+
