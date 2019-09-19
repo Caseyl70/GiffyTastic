@@ -10,21 +10,28 @@ $("#buttons").on("click", "buttons", function() {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-console.log(response)
+// console.log(response)
         var results = response.data;
         for (var i = 0; i < ratings.length; i++) {
             var worldDiv = $("<div>");
 
             var ratings = results[i].ratings;
             var p = $("<p>").text("Rating: " + ratings);
-            var worldImage = $("<img>")
+            //FOR each state of image, still or animate( Need a .attr and the string argument)
+            
+            var worldImage = $("<img>").addClass("gif").attr("data-state", "still").attr("data-animate", results[i].images.fixed_height_url)
+            worldImage.attr("src", results[i].images.fixed_height_still.url);
+            //Will need to use my new div to set equal to what will pull images(still, animated)
 
+            //And then prepend the new div to the page
+            worldDiv.prepend(p);
+            worldDiv.prepend(worldImage);
+            console.log(ratings)
 
+            $("#gifs-appear-hear").prepend(worldImage);
         }
     }
 }
 
 
 //Create a results variable, and add a for loop so it runs each time when you click a button
-//Will need to use my new div to set equal to what will pull images(still, animated)
-//And then prepend the new div to the page
