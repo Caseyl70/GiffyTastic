@@ -1,16 +1,16 @@
 //Need to add an on.click function for the button menu
-$("#buttons").on("click", "buttons", function() {
+$("#buttons").on("click", "buttons", function () {
     //Grab my Variable and Query URL and plug it in
     var keyword = $(this).attr("#data-world");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + keyword + "&api_key=1UDXeUjPXD7dVqzhJqMItp1MDQrx5uth&limit=10";
     console.log(keyword);
-    
+
     //.AJAX method to grab the URL and method: GET 
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
-// console.log(response)
+    }).then(function (response) {
+        // console.log(response)
         var results = response.data;
         for (var i = 0; i < ratings.length; i++) {
             var worldDiv = $("<div>");
@@ -32,28 +32,36 @@ $("#buttons").on("click", "buttons", function() {
 
             //on.click function for animating gifs, and making gif images still
         }
-        $("#gifs-appear-here").on("click", "gifs", function() {
+        $("#gifs-appear-here").on("click", "gifs", function () {
             var state = $(this).attr("data-state");
             var stillImage = $(this).attr("data-still");
             var animateImage = $(this).attr("data-animate");
-//If/else statement if state is still, true. Else, false. 
+            //If/else statement if state is still, true. Else, false. 
             if (state === "still") {
                 $(this).attr({
-                "src": animateImage,
-                "data-state": "animate",
+                    "src": animateImage,
+                    "data-state": "animate",
                 })
-            
+
             } else {
                 $(this).attr({
                     "src": stillImage,
                     "data-state": "still"
                 })
-                }
             }
+        });
 
-        }
-    }
-}
+        $("#submit").on("click", function () {
+            var input = $("#input").val();
+                console.log(input)
+                var newField = $("<button>").attr("#data-world", input).addClass;
+                var newField = $("<button>").attr("#data-world", input).addClass("#buttons").text(input);
+                console.log(input)
+        
+            
 
+    $("#buttons").append(newField);
+})
 
-//Create a results variable, and add a for loop so it runs each time when you click a button
+    });
+})
