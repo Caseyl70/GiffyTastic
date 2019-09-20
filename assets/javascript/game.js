@@ -19,7 +19,7 @@ $("#buttons").on("click", ".buttons", function() {
             var p = $("<p>").text("Rating: " + rating);
             //FOR each state of image, still or animate( Need a .attr and the string argument)
 
-            var worldImage = $("<img>")
+            var worldImage = $("<img>");
             worldImage.attr("src", results[i].images.fixed_height_still.url);
             worldImage.attr("data-animate", results[i].images.fixed_height.url);
             worldImage.attr("data-state", "still");
@@ -44,13 +44,13 @@ $("#buttons").on("click", ".buttons", function() {
 });
 //on.click function for animating gifs
 //This is where everytime you click the picture, the picture goes from animate, to still, and back.
-            $("#gifs-appear-here").on("click", "gif", function(){
+            $("#gifs-appear-here").on("click", ".gif", function(){
             var state = $(this).attr("data-state");
             var stillImages = $(this).attr("data-still");
             var animateImages = $(this).attr("data-animate");
             
             if (state === "still") {
-                $(this).attr("src", stillImages);
+                $(this).attr("src", animateImages);
                 $(this).attr("data-state", "animate");
                 //     "src": animateImages,
                 //     "data-state": "animate"
@@ -58,7 +58,7 @@ $("#buttons").on("click", ".buttons", function() {
 
             } else {
                 // $(this).attr({
-                    $(this).attr("src", animateImages);
+                    $(this).attr("src", stillImages);
                     $(this).attr("data-state", "still");
                     // "src": stillImages,
                     // "data-state": "still"
