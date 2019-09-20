@@ -19,10 +19,12 @@ $("#buttons").on("click", ".buttons", function() {
             var p = $("<p>").text("Rating: " + rating);
             //FOR each state of image, still or animate( Need a .attr and the string argument)
 
-            var worldImage = $("<img>").addClass("gif");
-            worldImage.attr("src", results[i].images.fixed_height.url);
+            var worldImage = $("<img>")
+            worldImage.attr("src", results[i].images.fixed_height_still.url);
+            worldImage.attr("data-animate", results[i].images.fixed_height.url);
             worldImage.attr("data-state", "still");
-            worldImage.attr("gif");
+            worldImage.attr("data-still", results[i].images.fixed_height_still.url);
+            worldImage.addClass("gif");
             
             
             
@@ -48,16 +50,19 @@ $("#buttons").on("click", ".buttons", function() {
             var animateImages = $(this).attr("data-animate");
             
             if (state === "still") {
-                $(this).attr({
-                    "src": animateImages,
-                    "data-state": "animate"
-                })
+                $(this).attr("src", stillImages);
+                $(this).attr("data-state", "animate");
+                //     "src": animateImages,
+                //     "data-state": "animate"
+                // })
 
             } else {
-                $(this).attr({
-                    "src": stillImages,
-                    "data-state": "still"
-                })
+                // $(this).attr({
+                    $(this).attr("src", animateImages);
+                    $(this).attr("data-state", "still");
+                    // "src": stillImages,
+                    // "data-state": "still"
+                // })
             }
         });
         
